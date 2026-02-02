@@ -133,3 +133,10 @@ for transaction in transactions_clean:
 #print(customers[:10])
 #print(sales[:10])
 #print(thread_sold[:10])
+
+total_sales = 0
+for sale in sales:
+    total_sales += float(sale.strip().replace("$",""))
+
+#print("Total sales:", total_sales)
+#print(thread_sold)
