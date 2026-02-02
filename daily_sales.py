@@ -104,3 +104,32 @@ Eric Mcdaniel ;,;$29.70;,; green ;,; 09/15/17
 green&white;,;09/15/17,   Gail Phelps   ;,;$30.52   
 ;,; green&white&blue   ;,; 09/15/17 , Myrtle Morris 
 ;,;   $22.66   ;,; green&white&blue;,;09/15/17"""
+
+
+daily_sales_replaced = daily_sales.replace(";,;", "|")
+daily_transactions = daily_sales_replaced.split(",")
+
+transactions_clean = []
+
+for transaction in daily_transactions:
+    transaction = transaction.strip()
+    transaction_split = transaction.split("|")
+    transaction_split = [item.strip() for item in transaction_split if item.strip() != ""]
+    transactions_clean.append(transaction_split)
+
+customers = []
+sales = []
+thread_sold = []
+
+for transaction in transactions_clean:
+    if len(transaction) >= 3:
+        customers.append(transaction[0])
+        sales.append(transaction[1])
+        thread_sold.append(transaction[2])
+    else:
+        # if the transaction doesn't have 3 items, skip or handle separately
+        continue
+
+#print(customers[:10])
+#print(sales[:10])
+#print(thread_sold[:10])
