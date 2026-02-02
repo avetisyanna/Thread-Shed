@@ -140,3 +140,15 @@ for sale in sales:
 
 #print("Total sales:", total_sales)
 #print(thread_sold)
+
+
+thread_sold_split = []
+for sale in thread_sold:
+    sale = sale.strip()
+    if "&" in sale:
+        colors = sale.split("&")
+        for color in colors:
+            thread_sold_split.append(color.strip())
+    else:
+        thread_sold_split.append(sale)
+#print(thread_sold_split[:20])
