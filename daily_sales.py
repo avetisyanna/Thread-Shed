@@ -152,3 +152,15 @@ for sale in thread_sold:
     else:
         thread_sold_split.append(sale)
 #print(thread_sold_split[:20])
+
+def color_count(color):
+  count = 0
+  for item in thread_sold_split:
+    if item == color:
+      count += 1
+  return count
+
+colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
+for color in colors:
+    count = color_count(color)
+    print("Today, {count} {color} threads were sold.".format(count=count, color=color))
